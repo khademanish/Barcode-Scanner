@@ -1,0 +1,26 @@
+<template>
+    <div class="slds-align_absolute-center slds-m-vertical_large">
+        <lightning-button
+            variant="brand"
+            class="slds-var-m-left_x-small"
+            icon-name="utility:scan"
+            label="Scan Barcode"
+            title="Open a camera view and look for a barcode to scan"
+            onclick={startScanning}>
+        </lightning-button>
+    </div>
+    <template if:true={scannedBarcodes}>
+        <div class="slds-var-m-vertical_large slds-var-p-vertical_medium 
+            slds-text-align_center slds-border_top slds-border_bottom">
+            Scanned barcode values are:
+            <span class="slds-text-heading_small">{scannedBarcodesAsString}</span>
+        </div>
+    </template>
+    <template if:true={errorString}>
+        <div class="slds-var-m-vertical_large slds-var-p-vertical_medium 
+             slds-text-align_center slds-border_top slds-border_bottom">
+            Error Occured while scanning :
+            <span class="slds-text-heading_small">{errorString}</span>
+        </div>
+    </template>
+</template>
